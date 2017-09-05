@@ -1,0 +1,51 @@
+初始化——git init 带目录的初始化——git init newrepo
+添加新路径——git add filename
+修改的代码添加进stage——git add <change file> 
+为修改添加commit信息——git commit -m "<message>"
+提交代码——git commit -a -m（上两种综合，将修改添加进stage并记录commit信息）
+移除——git rm file
+创建本地分支（不进行分支切换）——git branch newbranch
+切换分支——git checkout branchName 
+创建并切换分支（-d删除）——git checkout -b branchName 
+合并分支——git merge test
+暂存当前工作区——git stash
+继续当前工作区——git stash pop
+scp -r 文件夹 远程目录（复制）
+
+git clone <repository> <directory>——
+将<repository>指向的版本库创建一个克隆到<directory>目录
+目录<directory>相当于克隆版本库的工作区，文件都会检出，版本库位于工作区的.git目录中
+
+git clone --bare <repository> <directory.git>——
+创建的克隆版本库不包含工作区，直接就是版本库的内容
+（这样的版本库称为裸版本库，一般约定俗成裸版本库的目录名以.git做后缀)
+
+git pull http://git.example.com/project.git——
+取回远程主机某个分支的更新,再与本地的指定分支合并
+
+冲突conflict——树冲突（文件名修改冲突）和内容冲突（不同成员修改了同一文件同一区域）
+（执行push之前先进行git pull的操作）
+
+内容——
+1.git status查看版本库状态 
+2.git mergetool出现kdiff3图形界面
+其中A区为修改前，B区为本地（local）版本库修改，C区为远程版本库（remote）信息
+在最下方点击右键选择需要使用的版本库，修改后保存退出
+3.git commit "message"
+  git push <branch>
+
+树合并——
+1.git rm <filename1>
+2.git add <filename2>
+3.git commit 
+
+
+git 设置好后，创建自己的空的新项目
+     第一步：mkdir test
+     第二步：cd test
+     第三步：git init
+     第四步：touch README
+     第五步：git add README
+     第六步：git commit -am "first commit"
+     第七步：git remote add origin git@gitlab.jiuzhilan.net:XXX/test.git
+     第八步：git push origin master
