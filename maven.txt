@@ -1,0 +1,27 @@
+了解Maven原理，Maven解决什么问题
+Maven的版本机制，Snapshot版本和普通版本的区别
+Maven的常用goals
+Maven的插件使用
+熟悉自建Nexus
+
+
+Maven——项目管理和综合工具，使用标准的目录结构和默认构建生命周期，开发团队环境中，可以设置按标准在非常短的时间里完成配置工作。
+简化、标准化项目建设过程，处理编译、分配、文档、团队协作和其他任务的无缝连接。增加可重用性并负责建立相关任务
+
+本地资源库——存储所有项目的依赖关系（插件jar和其他文件，这些文件被Maven下载到文件夹），当建立一个Maven项目，所有相关文档将被存储在Maven本地仓库（默认存在.m2文件，若要更改修改setting文件的<localRepository>
+中央存储库——下载所有项目依赖库的默认位置——检查项目中的pom.xml文件，以确定要下载的依赖
+（默认情况下，Maven从Maven中央仓库下载所有依赖关系。但是，有些库丢失在中央存储库，只有在Java.net或JBoss的储存库远程仓库中能找到）
+1.Java.net资源库
+<repository>
+      <id>java.net</id>
+      <url>https://maven.java.net/content/repositories/public/</url>
+</repository>
+2.JBoss Maven存储库
+<repository>
+	<id>JBoss repository</id>
+	<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+</repository>
+
+Maven版本机制——snapshot（用于保存开发过程中的不稳定版本）和release（保存稳定版本）
+定义一个组件／模块为快照版本，在pom文件中该模块的版本号后面加上-SNAPSHOT即可
+若组件为快照版本，maven会自动从私服（Nexus)中检查它所依赖构建快照的最新版本，默认maven一天一查
