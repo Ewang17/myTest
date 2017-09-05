@@ -49,6 +49,3 @@ git 设置好后，创建自己的空的新项目
      第六步：git commit -am "first commit"
      第七步：git remote add origin git@gitlab.jiuzhilan.net:XXX/test.git
      第八步：git push origin master
-
-
-lllllll
